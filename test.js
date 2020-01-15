@@ -7,6 +7,11 @@ function forAll (sequence) {
                     return predicate(n);
                 });
             });
+        },
+        ifAs : function (func) {
+            // TODO: make immutable
+            sequence = sequence.map(func);
+            return this;
         }
     }
 }

@@ -6,11 +6,12 @@
 const forAll = require("../test.js");
 const helpers = require("../_helpers/helpers.js");
 
-function prime41(n) {
-    return helpers.isPrime(Math.pow(n,2) + n + 41);
+function nSquaredPlusNPlus41(n) {
+    return Math.pow(n,2) + n + 41;
 }
 
 console.log(
-    forAll(helpers.sequence(0,40))
-    .test(prime41)
+    forAll(helpers.sequence(0, 40))
+        .ifAs(nSquaredPlusNPlus41)
+        .test(helpers.isPrime)
 )
