@@ -2,7 +2,8 @@ function forAll (sequence) {
 
     return {
         test: function (arrOfPredicates) {
-            return sequence.every(n => {          
+            return sequence.every(n => {
+                if (!Array.isArray(arrOfPredicates)) arrOfPredicates = [arrOfPredicates];          
                 return arrOfPredicates.every(predicate => {
                     return predicate(n);
                 });

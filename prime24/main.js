@@ -3,7 +3,8 @@
 // For all n in Primes, predicate is a multiple of 24
 
 const forAll = require("../test.js");
-const helpers = require("../_helpers/helpers.js");
+const isPrime = require("../_helpers/helpers.js").isPrime;
+const sequence = require("../_helpers/helpers.js").sequence;
 
 // Proof :
 // p^2 - 1 = (p-1)*(p+1)
@@ -33,13 +34,13 @@ function predicate(n) {
 }
 
 console.log(
-    forAll(helpers.sequence(4,10000))
-        .filter(helpers.isPrime)
+    forAll(sequence(4,10000))
+        .filter(isPrime)
         .test([
             aboveBelowAreMultipleOf_2, 
             aboveBelowMultipliedAreMultipleOf_8, 
             aboveBelowMultipliedAreMultipleOf_3, 
             aboveBelowMultipliedAreMultipleOf_3Times8,
-            predicate
+            // predicate
         ])
 );
