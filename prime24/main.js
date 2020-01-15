@@ -41,6 +41,6 @@ console.log(
             aboveBelowMultipliedAreMultipleOf_8, 
             aboveBelowMultipliedAreMultipleOf_3, 
             aboveBelowMultipliedAreMultipleOf_3Times8,
-            // predicate
+            predicate
         ])
 );
