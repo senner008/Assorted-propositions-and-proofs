@@ -14,10 +14,14 @@ function isPrime(n) {
     return true;
 }
 
-function getNaturalNumbers(start, finish) {
+function sequence(start, finish, filter) {
     var arr = [];
     for (let i = start; i < finish +1; i++) {
-        arr.push(i);
+        if (filter && filter(i)) {
+           arr.push(i)
+        } else if (!filter) {
+            arr.push(i);
+        }
     }
     return arr;
 }
@@ -25,5 +29,5 @@ function getNaturalNumbers(start, finish) {
 
 module.exports = {
     isPrime,
-    getNaturalNumbers
+    sequence
 }

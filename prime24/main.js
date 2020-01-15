@@ -5,27 +5,19 @@
 const forAll = require("../test.js");
 const helpers = require("../_helpers/helpers.js");
 
-
-function getPrimes (numbers) {
-
-    var arr = [];
-    numbers.forEach(n => {
-        if (helpers.isPrime(n)) arr.push(n)
-    })
-    return arr;
-}
-
-var primes = getPrimes(helpers.getNaturalNumbers(4,1000));
-console.log(primes)
-
 // Proof :
-
 // All primes+1 and primes-1 are multiple of 2;
+// All primes+1 * primes-1 are multiple of 4;'
 
-function aboveBelowPrimes(prime) {
-
-    return (prime - 1) % 2 === 0 && (prime + 1) % 2 === 0;
+function aboveBelowAreMultipleOf2(n) {
+    return (n - 1) % 2 === 0 && (n + 1) % 2 === 0;
 }
 
-var result = forAll(primes)
-    .test(aboveBelowPrimes);
+function aboveBelowMultipliedAreMultipleOf4(n) {
+    return ((n - 1) * (n + 1)) % 4 === 0;
+}
+
+console.log(
+    forAll(helpers.sequence(4,1000, helpers.isPrime))
+        .test(aboveBelowAreMultipleOf2, aboveBelowMultipliedAreMultipleOf4)
+);
