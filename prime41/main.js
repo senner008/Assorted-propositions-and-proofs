@@ -11,7 +11,13 @@ function nSquaredPlusNPlus41(n) {
 }
 
 console.log(
+    forAll(helpers.sequence(0, 39))
+        .map(nSquaredPlusNPlus41)
+        .test(helpers.isPrime)
+)
+
+console.log(
     forAll(helpers.sequence(0, 40))
-        .ifAs(nSquaredPlusNPlus41)
+        .map(nSquaredPlusNPlus41)
         .test(helpers.isPrime)
 )

@@ -18,6 +18,7 @@ function aboveBelowMultipliedAreMultipleOf4(n) {
 }
 
 console.log(
-    forAll(helpers.sequence(4,1000, helpers.isPrime))
+    forAll(helpers.sequence(4,1000))
+        .filter(helpers.isPrime)
         .test(aboveBelowAreMultipleOf2, aboveBelowMultipliedAreMultipleOf4)
 );

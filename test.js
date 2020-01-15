@@ -8,9 +8,13 @@ function forAll (sequence) {
                 });
             });
         },
-        ifAs : function (func) {
+        map : function (func) {
             // TODO: make immutable
             sequence = sequence.map(func);
+            return this;
+        },
+        filter : function (func) {
+            sequence = sequence.filter(func);
             return this;
         }
     }

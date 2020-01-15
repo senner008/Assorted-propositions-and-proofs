@@ -14,14 +14,10 @@ function isPrime(n) {
     return true;
 }
 
-function sequence(start, finish, filter) {
+function sequence(start, finish) {
     var arr = [];
     for (let i = start; i < finish +1; i++) {
-        if (filter && filter(i)) {
            arr.push(i)
-        } else if (!filter) {
-            arr.push(i);
-        }
     }
     return arr;
 }
